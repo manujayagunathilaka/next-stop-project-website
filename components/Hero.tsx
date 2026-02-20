@@ -1,23 +1,20 @@
 "use client"
 
-import { motion } from "framer-motion"
+import { motion, AnimatePresence } from "framer-motion"
 import HeroMap from "./HeroMap"
-import { Activity, Wifi, Shield, Zap } from "lucide-react"
+import { Activity, Wifi, Shield, Zap, X, Construction } from "lucide-react"
+import Link from "next/link"
+import { useState } from "react"
 
 export default function Hero() {
+    const [showModal, setShowModal] = useState(false)
+
     return (
         <section className="relative min-h-[100dvh] flex items-center overflow-hidden bg-black py-20 md:py-0">
             {/* 2D Animated Map Background */}
             <div className="absolute inset-0 z-0 opacity-100 pointer-events-none">
                 <HeroMap />
             </div>
-
-            {/* HUD Overlay Grid - Decorative (DISABLED FOR DEBUGGING) */}
-            {/* <div className="absolute inset-0 z-10 pointer-events-none">
-                <div className="absolute top-24 left-8 border-l-2 border-t-2 border-white/20 w-16 h-16 rounded-tl-3xl opacity-50" />
-                <div className="absolute bottom-8 right-8 border-r-2 border-b-2 border-white/20 w-16 h-16 rounded-br-3xl opacity-50" />
-                <div className="absolute inset-0 bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,0,0,0.25)_50%),linear-gradient(90deg,rgba(255,0,0,0.06),rgba(0,255,0,0.02),rgba(0,0,255,0.06))] z-20 background-size-[100%_2px,3px_100%] pointer-events-none opacity-20" />
-            </div> */}
 
             {/* Content Container */}
             <div className="relative z-50 container mx-auto px-4">
@@ -59,13 +56,22 @@ export default function Hero() {
                             </p>
 
                             <div className="flex flex-wrap gap-4">
-                                <button className="bg-white text-black hover:bg-gray-100 font-bold px-8 py-3.5 rounded-full transition-all hover:scale-105 active:scale-95">
+                                {/* Launch App → shows under-development modal */}
+                                <button
+                                    onClick={() => setShowModal(true)}
+                                    className="bg-white text-black hover:bg-gray-100 font-bold px-8 py-3.5 rounded-full transition-all hover:scale-105 active:scale-95"
+                                >
                                     Launch App
                                 </button>
-                                <button className="px-8 py-3.5 rounded-full border border-white/30 hover:bg-white/10 text-white font-bold backdrop-blur-sm transition-all flex items-center gap-2 hover:border-white/60">
+
+                                {/* Live Demo → navigates to /dashboard */}
+                                <Link
+                                    href="/dashboard"
+                                    className="px-8 py-3.5 rounded-full border border-white/30 hover:bg-white/10 text-white font-bold backdrop-blur-sm transition-all flex items-center gap-2 hover:border-white/60"
+                                >
                                     <Wifi size={18} />
                                     Live Demo
-                                </button>
+                                </Link>
                             </div>
                         </motion.div>
                     </div>
@@ -144,6 +150,79 @@ export default function Hero() {
                     <span className="text-green-500 animate-pulse">● LIVE DATA STREAM</span>
                 </div>
             </div>
+
+            {/* Under Development Modal */}
+            <AnimatePresence>
+                {showModal && (
+                    <motion.div
+                        key="modal-backdrop"
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/70 backdrop-blur-md"
+                        onClick={() => setShowModal(false)}
+                    >
+                        <motion.div
+                            key="modal-card"
+                            initial={{ opacity: 0, scale: 0.85, y: 30 }}
+                            animate={{ opacity: 1, scale: 1, y: 0 }}
+                            exit={{ opacity: 0, scale: 0.85, y: 30 }}
+                            transition={{ type: "spring", stiffness: 300, damping: 28 }}
+                            onClick={(e) => e.stopPropagation()}
+                            className="relative bg-black border border-white/20 rounded-3xl p-10 max-w-md w-full shadow-2xl text-center overflow-hidden"
+                        >
+                            {/* Glow blob */}
+                            <div className="absolute -top-16 -left-16 w-48 h-48 bg-yellow-500/20 rounded-full blur-3xl pointer-events-none" />
+                            <div className="absolute -bottom-16 -right-16 w-48 h-48 bg-primary/20 rounded-full blur-3xl pointer-events-none" />
+
+                            {/* Close button */}
+                            <button
+                                onClick={() => setShowModal(false)}
+                                className="absolute top-4 right-4 p-2 rounded-full text-white/40 hover:text-white hover:bg-white/10 transition-all"
+                            >
+                                <X size={18} />
+                            </button>
+
+                            {/* Icon */}
+                            <div className="relative flex items-center justify-center w-20 h-20 mx-auto mb-6 rounded-2xl bg-yellow-500/10 border border-yellow-500/30">
+                                <Construction size={40} className="text-yellow-400" />
+                            </div>
+
+                            <h2 className="text-2xl font-black text-white mb-3 font-heading">
+                                App Under Development
+                            </h2>
+                            <p className="text-white/60 text-sm leading-relaxed mb-6">
+                                The NextStop passenger app is currently being built.
+                                Our team is working hard to bring you a seamless transit experience.
+                                Stay tuned for the official launch!
+                            </p>
+
+                            {/* Progress bar */}
+                            <div className="mb-6">
+                                <div className="flex justify-between text-xs font-mono text-white/40 mb-2">
+                                    <span>BUILD PROGRESS</span>
+                                    <span>67%</span>
+                                </div>
+                                <div className="h-1.5 bg-white/10 rounded-full overflow-hidden">
+                                    <motion.div
+                                        initial={{ width: 0 }}
+                                        animate={{ width: "67%" }}
+                                        transition={{ duration: 1.2, ease: "easeOut", delay: 0.3 }}
+                                        className="h-full bg-gradient-to-r from-yellow-500 to-primary rounded-full"
+                                    />
+                                </div>
+                            </div>
+
+                            <button
+                                onClick={() => setShowModal(false)}
+                                className="w-full py-3 rounded-full bg-white text-black font-bold hover:bg-gray-100 transition-all hover:scale-[1.02] active:scale-95"
+                            >
+                                Got It
+                            </button>
+                        </motion.div>
+                    </motion.div>
+                )}
+            </AnimatePresence>
         </section>
     )
 }

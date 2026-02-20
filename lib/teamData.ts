@@ -26,7 +26,7 @@ export const teamData = [
         role: "Data Scientist & AI Engineer",
         image: "/team/member4.jpg",
         bio: "Turning raw data into actionable insights. Building the predictive models that power NextStop.",
-        github: "https://github.com/Malsha601"
+        github: "https://github.com/MalshaGeesarani"
     },
     {
         name: "M. G. N. Heshan Bandara",

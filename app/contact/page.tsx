@@ -97,11 +97,10 @@ export default function ContactPage() {
                                 </div>
                                 <div>
                                     <h3 className="text-xl font-bold text-white mb-2">Operations Base</h3>
-                                    <p className="text-gray-400 font-medium leading-relaxed">
-                                        Nexora HQ<br />
-                                        123 Innovation Drive, Colombo 03<br />
-                                        Sri Lanka
-                                    </p>
+                                    <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-blue-500/10 border border-blue-500/30 text-blue-400 text-xs font-mono font-bold uppercase tracking-widest">
+                                        <span className="w-1.5 h-1.5 rounded-full bg-blue-400 animate-pulse" />
+                                        Address — Coming Soon
+                                    </span>
                                 </div>
                             </div>
 
@@ -112,10 +111,11 @@ export default function ContactPage() {
                                 </div>
                                 <div>
                                     <h3 className="text-xl font-bold text-white mb-2">Digital Signal</h3>
-                                    <p className="text-gray-400 font-medium mb-1">High-priority signal line.</p>
-                                    <a href="mailto:hello@nextstop.lk" className="text-white font-bold hover:text-green-400 transition-colors border-b border-white/20 hover:border-green-400 pb-0.5">
-                                        hello@nextstop.lk
-                                    </a>
+                                    <p className="text-gray-400 font-medium mb-3">High-priority signal line.</p>
+                                    <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-green-500/10 border border-green-500/30 text-green-400 text-xs font-mono font-bold uppercase tracking-widest">
+                                        <span className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse" />
+                                        Email — Pending Setup
+                                    </span>
                                 </div>
                             </div>
 
@@ -126,10 +126,11 @@ export default function ContactPage() {
                                 </div>
                                 <div>
                                     <h3 className="text-xl font-bold text-white mb-2">Voice Comms</h3>
-                                    <p className="text-gray-400 font-medium mb-1">Mon-Fri, 9am - 5pm IST</p>
-                                    <a href="tel:+94112345678" className="text-white font-bold hover:text-purple-400 transition-colors border-b border-white/20 hover:border-purple-400 pb-0.5">
-                                        +94 11 234 5678
-                                    </a>
+                                    <p className="text-gray-400 font-medium mb-3">Mon-Fri, 9am - 5pm IST</p>
+                                    <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-purple-500/10 border border-purple-500/30 text-purple-400 text-xs font-mono font-bold uppercase tracking-widest">
+                                        <span className="w-1.5 h-1.5 rounded-full bg-purple-400 animate-pulse" />
+                                        Phone — Pending Setup
+                                    </span>
                                 </div>
                             </div>
                         </div>
