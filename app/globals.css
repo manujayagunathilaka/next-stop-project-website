@@ -1,26 +1,58 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #000000;
+  --foreground: #ffffff;
+  color-scheme: dark;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-primary: #0056b3;
+  /* Transit Blue */
+  --color-secondary: #ff8c00;
+  /* Safety Orange */
+  --color-accent: #00bfff;
+  /* Sky Blue for glass accents */
+  --font-sans: var(--font-inter);
+  --font-heading: var(--font-space-grotesk);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+
+/* Force dark mode variables when class is present */
+.dark {
+  --background: #000000;
+  --foreground: #ffffff;
+}
+
+
+html.dark {
+  background: #000 !important;
+  color: #fff !important;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--background) !important;
+  color: var(--foreground) !important;
+  font-family: var(--font-inter), sans-serif;
+}
+
+/* 3D Flip Card Utilities */
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+.transform-style-3d {
+  transform-style: preserve-3d;
+}
+
+.backface-hidden {
+  backface-visibility: hidden;
+}
+
+.rotate-y-180 {
+  transform: rotateY(180deg);
 }
