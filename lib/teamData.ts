@@ -19,7 +19,7 @@ export const teamData = [
         role: "Backend Architect",
         image: "/team/member3.jpg",
         bio: "Scaling systems to millions of requests. Specialist in distributed databases and real-time systems.",
-        github: null
+        github: "https://github.com/yumeerachandul-wq"
     },
     {
         name: "Malsha Geesarani Kulasekara",
@@ -40,7 +40,7 @@ export const teamData = [
         role: "Software Engineer",
         image: "/team/member6.jpg",
         bio: "Contributing to the core infrastructure and features of the NextStop platform.",
-        github: null
+        github: "https://github.com/DeshanTharanga"
     }
 ];
 
