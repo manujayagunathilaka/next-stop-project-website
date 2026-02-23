@@ -19,6 +19,30 @@ export const metadata: Metadata = {
   description: "Sri Lanka's First AI-Powered Real-Time Transit Ecosystem. Predictability in Motion.",
   icons: {
     icon: "/nextstop-logo.png",
+    shortcut: "/nextstop-logo.png",
+    apple: "/nextstop-logo.png",
+  },
+  openGraph: {
+    title: "NextStop - AI Powered Transit Ecosystem",
+    description: "Sri Lanka's First AI-Powered Real-Time Transit Ecosystem. Predictability in Motion.",
+    url: "https://nextstop-sl.vercel.app",
+    siteName: "NextStop",
+    images: [
+      {
+        url: "/nextstop-banner.png",
+        width: 1200,
+        height: 630,
+        alt: "NextStop — AI Powered Transit Ecosystem",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "NextStop - AI Powered Transit Ecosystem",
+    description: "Sri Lanka's First AI-Powered Real-Time Transit Ecosystem. Predictability in Motion.",
+    images: ["/nextstop-banner.png"],
   },
 };
 
