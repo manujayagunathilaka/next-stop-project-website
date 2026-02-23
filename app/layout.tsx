@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     siteName: "NextStop",
     images: [
       {
-        url: "/nextstop-banner.png",
+        url: "/nextstop-banner-og.png",
         width: 1200,
         height: 630,
         alt: "NextStop — AI Powered Transit Ecosystem",
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "NextStop - AI Powered Transit Ecosystem",
     description: "Sri Lanka's First AI-Powered Real-Time Transit Ecosystem. Predictability in Motion.",
-    images: ["/nextstop-banner.png"],
+    images: ["/nextstop-banner-og.png"],
   },
 };
 
