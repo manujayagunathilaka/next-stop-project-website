@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import { Inter, Space_Grotesk } from "next/font/google"; // Import fonts
 import "./globals.css";
-import Navbar from "@/components/Navbar"; // Import Navbar
-import Footer from "@/components/Footer"; // Import Footer
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
+import { Analytics } from "@vercel/analytics/react";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -66,6 +67,7 @@ export default function RootLayout({
         <Navbar />
         {children}
         <Footer />
+        <Analytics />
       </body>
     </html>
   );
