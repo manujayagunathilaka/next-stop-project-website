@@ -3,7 +3,7 @@
 import { motion, AnimatePresence } from "framer-motion"
 import Link from "next/link"
 import { ArrowLeft, LayoutDashboard, Activity, Users, Map as MapIcon, Settings, Bell, Search, Filter, MoreVertical, Battery, Signal, Navigation, AlertTriangle, CheckCircle2, Sun, Moon } from "lucide-react"
-import { useState, useEffect } from "react"
+import { useState, useEffect, useRef } from "react"
 import dynamic from "next/dynamic"
 
 const DashboardMap = dynamic(() => import("@/components/DashboardMap"), {
@@ -96,10 +96,10 @@ export default function DashboardPage() {
     }, [theme])
 
     return (
-        <div className="min-h-screen bg-gray-50 dark:bg-black text-gray-900 dark:text-white flex overflow-hidden font-sans transition-colors duration-300">
+        <div className="h-screen bg-gray-50 dark:bg-black text-gray-900 dark:text-white flex overflow-hidden font-sans transition-colors duration-300">
 
             {/* --- SIDEBAR --- */}
-            <aside className="w-20 lg:w-64 border-r border-gray-200 dark:border-white/10 bg-white dark:bg-[#050505] flex flex-col transition-all duration-300 z-50">
+            <aside className="w-20 lg:w-64 border-r border-gray-200 dark:border-white/10 bg-white dark:bg-[#050505] flex flex-col transition-all duration-300 z-50 h-full">
                 {/* Logo Area */}
                 <div className="h-20 flex items-center justify-center lg:justify-start lg:px-6 border-b border-gray-200 dark:border-white/5">
                     <div className="w-10 h-10 rounded-xl flex items-center justify-center dark:bg-white dark:shadow-[0_0_15px_rgba(255,255,255,0.3)]">
@@ -298,10 +298,11 @@ export default function DashboardPage() {
 
 // --- TOAST COMPONENT ---
 function Toast({ message, type, onClose }: { message: string, type: 'success' | 'error' | 'warning' | 'info', onClose: () => void }) {
+    const onCloseRef = useRef(onClose)
     useEffect(() => {
-        const timer = setTimeout(onClose, 5000)
+        const timer = setTimeout(() => onCloseRef.current(), 3000)
         return () => clearTimeout(timer)
-    }, [onClose])
+    }, [])
 
     return (
         <motion.div
