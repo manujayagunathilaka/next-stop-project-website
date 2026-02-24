@@ -370,7 +370,7 @@ function OverviewView() {
         <div className="space-y-8">
             {/* Stats Grid */}
             <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
-                <StatCard title="Total Revenue" value="$12,450" change="+12%" icon={<Activity className="text-green-500 dark:text-green-400" />} />
+                <StatCard title="Total Revenue" value="LKR 12,450" change="+12%" icon={<Activity className="text-green-500 dark:text-green-400" />} />
                 <StatCard title="Active Fleet" value="48/52" change="92%" icon={<Navigation className="text-blue-500 dark:text-blue-400" />} />
                 <StatCard title="Total Passengers" value="8,240" change="+5%" icon={<Users className="text-purple-500 dark:text-purple-400" />} />
                 <StatCard title="System Health" value="98.5%" change="Stable" icon={<Activity className="text-yellow-500 dark:text-yellow-400" />} />

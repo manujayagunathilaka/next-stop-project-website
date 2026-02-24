@@ -84,33 +84,7 @@ export default function HeroMap() {
                 </div>
             </motion.div>
 
-            {/* Overlay UI */}
-            <div className="absolute top-24 left-24 z-10 pointer-events-none hidden md:block">
-                <motion.div
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: 4 }}
-                    className="bg-black/90 backdrop-blur-xl border border-cyan-500/30 p-6 rounded-2xl shadow-[0_0_30px_rgba(0,255,255,0.1)]"
-                >
-                    <div className="flex items-center gap-3 mb-2">
-                        <div className="w-3 h-3 bg-cyan-500 rounded-full animate-pulse shadow-[0_0_10px_#06b6d4]" />
-                        <span className="text-sm font-bold text-cyan-100 tracking-[0.2em]">COLOMBO GRID</span>
-                    </div>
-                    <div className="text-4xl font-mono text-white font-bold tracking-tighter drop-shadow-[0_0_10px_rgba(255,255,255,0.5)]">
-                        OPTIMIZED
-                    </div>
-                    <div className="flex items-center justify-between mt-2 gap-8">
-                        <div>
-                            <div className="text-cyan-500/50 text-[10px] font-bold tracking-widest mb-1">TRAFFIC FLOW</div>
-                            <div className="text-xl text-cyan-400 font-mono">98%</div>
-                        </div>
-                        <div>
-                            <div className="text-magenta-500/50 text-[10px] text-fuchsia-500/50 font-bold tracking-widest mb-1">CONGESTION</div>
-                            <div className="text-xl text-fuchsia-400 font-mono">LOW</div>
-                        </div>
-                    </div>
-                </motion.div>
-            </div>
+
         </div>
     )
 }
